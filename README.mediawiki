@@ -1,0 +1,5 @@
+A refactored set of classes based on the example of a breathing LED here:
+
+http://forums.netduino.com/index.php?/topic/2053-breathing-led-onboard/
+
+To serve as basic library to fade in/out the LEDs in larger projects.
