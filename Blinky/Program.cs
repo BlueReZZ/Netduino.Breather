@@ -21,7 +21,9 @@ namespace Blinky
             int iMax = 0xff, iMin = 1;
             int i = iMin;
 
-            while (true)
+            var cycles = 0;
+            var MAX_CYCLES = 5;
+            while (cycles < MAX_CYCLES)
             {
                 for (; i < iMax; i++)
                 {
@@ -44,6 +46,7 @@ namespace Blinky
                     funDelay(iMax - i);
 
                 }
+                cycles++;
             }
         }
 
