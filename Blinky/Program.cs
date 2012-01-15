@@ -16,25 +16,44 @@ namespace Blinky
         public static void Main()
         {
             // write your code here
-            var led = new OutputPort(Pins.ONBOARD_LED, false);
+            var ledPort = new OutputPort(Pins.ONBOARD_LED, false);
 
-            var cycles = 0;
-            const int maxCycles = 10;
-            while (cycles <= maxCycles)
+            int iMax = 0xff, iMin = 1;
+            int i = iMin;
+
+            while (true)
             {
-                FlashFor(led, 125);
-                FlashFor(led, 250);
-                FlashFor(led, 500);
-                cycles++;
+                for (; i < iMax; i++)
+                {
+
+                    ledPort.Write(true);
+                    funDelay(i);
+
+                    ledPort.Write(false);
+                    funDelay(iMax - i);
+
+                }
+
+                for (; i > iMin; i--)
+                {
+
+                    ledPort.Write(true);
+                    funDelay(i);
+
+                    ledPort.Write(false);
+                    funDelay(iMax - i);
+
+                }
             }
         }
 
-        private static void FlashFor(OutputPort led, int millisecondsTimeout)
+        static private void funDelay(long lTicks)
         {
-            led.Write(true);
-            Thread.Sleep(millisecondsTimeout);
-            led.Write(false);
-            Thread.Sleep(millisecondsTimeout);
+            DateTime tNow = DateTime.Now;
+            DateTime tDue = tNow.AddTicks(lTicks * 0x100);
+            while (DateTime.Now < tDue) ;
+
+            return;
         }
     }
 }
