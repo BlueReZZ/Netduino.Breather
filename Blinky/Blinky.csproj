@@ -30,6 +30,11 @@
   </PropertyGroup>
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
+    <Compile Include="Breather.cs" />
+    <Compile Include="Dimmer.cs" />
+    <Compile Include="IBreather.cs" />
+    <Compile Include="LedBreather.cs" />
+    <Compile Include="LoopDimmer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
