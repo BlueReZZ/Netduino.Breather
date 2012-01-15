@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <AssemblyName>Blinky</AssemblyName>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Blinky</RootNamespace>
+    <AssemblyName>Blinky.Domain</AssemblyName>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Blinky.Domain</RootNamespace>
     <ProjectTypeGuids>{b69e3092-b931-443c-abe7-7e7b65f2a37f};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C436E8CD-DBC7-48E4-8C74-C747C69AB2E9}</ProjectGuid>
+    <ProjectGuid>{B4685EFC-2481-4E28-B485-75199E9A1D34}</ProjectGuid>
     <TargetFrameworkVersion>v4.1</TargetFrameworkVersion>
     <NetMfTargetsBaseDir Condition="'$(NetMfTargetsBaseDir)'==''">$(MSBuildExtensionsPath32)\Microsoft\.NET Micro Framework\</NetMfTargetsBaseDir>
   </PropertyGroup>
@@ -30,20 +30,18 @@
   </PropertyGroup>
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
-    <Compile Include="Led.cs" />
+    <Compile Include="Breathing\Breather.cs" />
+    <Compile Include="Dimming\Dimmer.cs" />
+    <Compile Include="Dimming\FaderIn.cs" />
+    <Compile Include="Dimming\FaderOut.cs" />
+    <Compile Include="Breathing\IBreather.cs" />
+    <Compile Include="Dimming\IDimmer.cs" />
+    <Compile Include="Adapters\ILed.cs" />
+    <Compile Include="Breathing\LedBreather.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.SPOT.Hardware" />
-    <Reference Include="Microsoft.SPOT.Native" />
-    <Reference Include="SecretLabs.NETMF.Hardware" />
-    <Reference Include="SecretLabs.NETMF.Hardware.Netduino" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Blinky.Domain\Blinky.Domain.csproj">
-      <Project>{B4685EFC-2481-4E28-B485-75199E9A1D34}</Project>
-      <Name>Blinky.Domain</Name>
-    </ProjectReference>
+    <Reference Include="Microsoft.SPOT.Native">
+    </Reference>
   </ItemGroup>
 </Project>
